@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="icon" href="pics/fav-login.png">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #000;
+                color: #fff;
+            }
+
+            div {
+                background-color: #111;
+                padding-top: 50px;
+                width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            }
+
+            form {
+                text-align: left;
+                align-content: center;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #444;
+                border-radius: 3px;
+                background-color: #333;
+                color: #fff;
+            }
+
+            select {
+                height: 35px;
+            }
+
+            input[type="submit"] {
+                background-color: #ff0000;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #cc0000;
+            }
+
+            h1 {
+                padding-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="color: #ff0000;" align="center">Login Form</h1>
+        <div>
+            <form action="f1db.php" method="post">
+                <label>Username</label>
+                <input type="text" name="una" required><br><br>
+
+                <label>Email</label>
+                <input type="email" name="ema" required><br><br>
+
+                <label>Password</label>
+                <input type="password" name="pass" required><br><br>
+
+                <label>Favourite Driver</label>
+                <select name="driver" required>
+                    <option value="select">Select</option>
+                    <option value="alb">Alexander Albon</option>
+                    <option value="sai">Carlos Sainz</option>
+                    <option value="lec">Charles Leclerc</option>
+                    <option value="law">Liam Lawson</option>
+                    <option value="oco">Esteban Ocon</option>
+                    <option value="alo">Fernando Alonso</option>
+                    <option value="rus">George Russell</option>
+                    <option value="mag">Kevin Magnussen</option>
+                    <option value="str">Lance Stroll</option>
+                    <option value="nor">Lando Norris</option>
+                    <option value="ham">Lewis Hamilton</option>
+                    <option value="col">Franco Colapinto</option>
+                    <option value="ver">Max Verstappen</option>
+                    <option value="hulk">Nico Hulkenberg</option>
+                    <option value="osc">Oscar Piastri</option>
+                    <option value="gas">Pierre Gasly</option>
+                    <option value="per">Sergio Perez</option>
+                    <option value="bot">Valtteri Bottas</option>
+                    <option value="tsu">Yuki Tsunoda</option>
+                    <option value="zho">Zhou Guanyu</option>
+                </select><br><br>
+
+                <label>Favourite Constructor</label>
+                <select name="const" required>
+                    <option value="select">Select</option>
+                    <option value="kick">Kick Sauber</option>
+                    <option value="vrb">Visa Cash App RB</option>
+                    <option value="alp">Alpine</option>
+                    <option value="ast">Aston Martin</option>
+                    <option value="fer">Ferrari</option>
+                    <option value="haas">Haas</option>
+                    <option value="mcl">McLaren</option>
+                    <option value="merc">Mercedes</option>
+                    <option value="rb">Red Bull</option>
+                    <option value="will">Williams</option>
+                </select><br><br>
+
+                <input type="submit" id="submit">
+            </form>
+        </div>
+        <div class="links" align="center">
+            <a href="index.html">Home -></a>
+            <a href="drivers.html">Drivers -></a>
+            <a href="const.html">Constructors -></a>
+            <a href="stand.html">Standings -></a>
+        </div>
+        <script>
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', (event) => {
+            const emailInput = document.getElementById("ema");
+            const passwordInput = document.getElementById("pass");
+            const emailRegex = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert("Please enter a valid email");
+                event.preventDefault();
+            }
+
+            if (passwordInput.value.length < 8) {
+                alert("Password must be 8 characters long");
+                event.preventDefault();
+            }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Standings</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="pics/fav-stand.png" rel="icon">
+    </head>
+    <body>
+        <h1 style="color: red;" align="center">Formula 1 2023 Standings</h1>
+        <div align="center">
+            <button onclick="displayDriver()">Driver Standings</button>
+            <button onclick="displayConstruct()">Constructor Standings</button>
+            <br><br>
+
+            <br><br>
+            <div id="driverStand" style="display:none; color: chartreuse;"></div>
+            <div id="constructStand" style="display:none; color: chartreuse;"></div>
+        </div>
+        <div class="links" align="center">
+            <a href="index.html">Home -></a>
+            <a href="drivers.html">Drivers -></a>
+            <a href="const.html">Constructors -></a>
+        </div>
+        <script>
+            const driver = [
+                {position:1, name:'Max Verstappen', nationality:'Netherlands', points:437},
+                {position:2, name:'Lando Norris', nationality:'Great Britain', points:374},
+                {position:3, name:'Charles Leclerc', nationality:'Monaco', points:356},
+                {position:4, name:'Oscar Piastri', nationality:'Australia', points:292},
+                {position:5, name:'Carlos Sainz', nationality:'Spain', points:290},
+                {position:6, name:'George Russell', nationality:'Great Britain', points:245},
+                {position:7, name:'Lewis Hamilton', nationality:'Great Britain', points:223},
+                {position:8, name:'Sergio Perez', nationality:'Mexico', points:152},
+                {position:9, name:'Fernando Alonso', nationality:'Spain', points:70},
+                {position:10, name:'Pierre Gasly', nationality:'France', points:42},
+                {position:11, name:'Nico Hulkenberg', nationality:'Germany', points:41},
+                {position:12, name:'Yuki Tsunoda', nationality:'Japan', points:30},
+                {position:13, name:'Lance Stroll', nationality:'Canada', points:24},
+                {position:14, name:'Esteban Ocon', nationality:'France', points:23},
+                {position:15, name:'Kevin Magnussen', nationality:'Denmark', points:16},
+                {position:16, name:'Alexander Albon', nationality:'Thailand', points:12},
+                {position:17, name:'Franco Colapinto', nationality:'Argentina', points:5},
+                {position:18, name:'Zhou Guanyu', nationality:'China', points:4},
+                {position:19, name:'Liam Lawson', nationality:'New Zealand', points:4},
+                {position:20, name:'Valtteri Bottas', nationality:'Finland', points:0},              
+            ];
+
+            const construct = [
+                {position:1, name:'McLaren', nationality:'Great Britain', points:666},
+                {position:2, name:'Ferrari', nationality:'Italy', points:652},
+                {position:3, name:'Red Bull Racing', nationality:'Austria', points:589},
+                {position:4, name:'Mercedes', nationality:'Germany', points:468},
+                {position:5, name:'Aston Martin', nationality:'Great Britain', points:94},
+                {position:6, name:'Alpine', nationality:'France', points:65},
+                {position:7, name:'Haas', nationality:'USA', points:58},
+                {position:8, name:'RB Honda RBPT', nationality:'Italy', points:46},
+                {position:9, name:'Williams', nationality:'Great Britain', points:17},               
+                {position:10, name:'Kick Sauber', nationality:'Switzerland', points:4},
+            ];
+
+            function displayDriver() {
+                const driverT = document.getElementById('driverStand');
+                const tableHTML = generateTableHTML(driver);
+                driverT.innerHTML = tableHTML;
+                driverT.style.display = 'block';
+                document.getElementById('constructStand').style.display = 'none';
+            }
+
+            function displayConstruct() {
+                const constructT = document.getElementById('constructStand');
+                const tableHTML = generateTableHTML(construct);
+                constructT.innerHTML = tableHTML;
+                constructT.style.display = 'block';
+                document.getElementById('driverStand').style.display = 'none';
+            }
+
+            function generateTableHTML(data) {
+                let tableHTML = '<table>';
+                tableHTML += '<tr><th>Position</th><th>Name</th><th>Nationality</th><th>Points</th></tr>';
+                data.forEach((item) => {
+                    tableHTML += `<tr><td>${item.position}</td><td>${item.name}</td><td>${item.nationality}</td><td>${item.points}</td></tr>`;
+                });
+                tableHTML += '</table>';
+                return tableHTML;
+            }
+        </script>
+    </body>
+</html>
